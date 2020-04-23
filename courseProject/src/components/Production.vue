@@ -4,7 +4,7 @@
 
                 <section class="order">
 		<div class="container">
-			<div class="row">
+			<div class="production_wrapper">
 				<div class="col-md-9">
 					<div class="order-statya">
 						<em>субота, 23 Березень 2019 /  Published in блог</em>
@@ -17,8 +17,8 @@
 						<p>Шкарпетки від 250 штук в одному кольорі і універсальному розділі: 60-65 грн</p>
 						<span>Консультація та замовлення по телефону: (096) 968 8662 чи через офіційні соц сторінки HARD у FB та Instagram</span>
 						<div class="order-gallery">
-							<img width="297px" height="371px" src="img/order/TNMK.png" alt="">
-							<img width="387px" height="auto" src="img/order/durnev.png" alt="">
+							<img src="img/order/TNMK.png" alt="pic">
+							<img src="img/order/durnev.png" alt="pic">
 						</div>
 						<div class="order-secgallery">
 							<img src="img/order/durnev2.png" alt="">

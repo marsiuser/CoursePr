@@ -14,7 +14,9 @@
 						<em>ЧЕТВЕР, 27 ВЕРЕСЕНЬ 2018 / PUBLISHED IN БЛОГ</em>
 						<h1>Команда Jägermeister рекомендує новий шоу-рум HARD</h1>
 						<p>До шоу-рума HARD (Антоновича 12) зайшли скаути Егеря та після шопінгу рекомендують магазин всім хто по ЖЕСТІ. З 50 секунди</p>
-						<iframe width="730" height="485" src="https://www.youtube.com/embed/r9uRsgI67R8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						<div class="video_showroom">
+							<iframe width="730" height="485" src="https://www.youtube.com/embed/r9uRsgI67R8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</div>
 					</div>
 				</div>
 				<div class="col-md-3">

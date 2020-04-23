@@ -12,7 +12,8 @@ const routes = [
     {path: '/collection19', component: Collection19},
     {path: '/collectionss19', component: CollectionSS19},
     {path: '/aboutus', component: AboutUs},
-    {path: '/productlist', component: ProductList}
+    {path: '/productlist', component: ProductList},
+    {path: '/singleproducts', component: SingleProducts}
 ]
  
 const router = new VueRouter({
@@ -29,6 +30,7 @@ import Collection19 from './components/Collection19.vue'
 import CollectionSS19 from './components/CollectionSS19.vue'
 import AboutUs from './components/AboutUs.vue'
 import ProductList from './components/ProductList.vue'
+import SingleProducts from './components/SingleProducts.vue'
  Vue.use(VueRouter)
     new Vue({
         render: h => h(App),

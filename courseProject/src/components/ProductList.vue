@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="app">
         <Header />
                 <section class="tshirt">
 		<div class="container">
@@ -24,7 +24,7 @@
 							<h6>новинки</h6>
 						<hr class="rred">
 							<div class="tshirt-new">
-									<p><a href="#">Оранж худі <br> HARD Kyivwalls</a> <br><span>1 900.00₴</span></p><img class="season-black" src="../img/man/categories/1.jpg" alt="">
+									<p><router-link v-bind:to="'/productlist'"><a href="#">Оранж худі <br> HARD Kyivwalls</a></router-link> <br><span>1 900.00₴</span></p><img class="season-black" src="../img/man/categories/1.jpg" alt="">
 							</div>
 							<div class="tshirt-new">
 									<p><a href="#">Чорне худі <br>HARD Kyivwalls</a> <br><span>1 900.00₴</span></p><img class="season-black" src="../img/man/categories/2.jpg" alt="">
@@ -78,17 +78,23 @@
 							</div>
 							<div class="lol">
 								<div class="tovarma" v-for="item in sortSizeProducts" v-show="item.type==typeProd">
-										<div class="fotorama">
-											<img :src="item.img" alt="">
-											<img :src="item.hoverimg" alt="">
+									<div class="prod_wrapper">
+										<div class="foro">
+											<div class="fotorama">
+														<img :src="item.img" alt="">
+														<img :src="item.hoverimg" alt="">
 										</div>
-									<div class="lol_wrap">
-										<h6>{{item.name}}</h6>
-										<p>Розмір: <span class="goods_size">{{item.size}}</span></p>
-										<div class="price_wrap">
-											<p v-if="item.saleprice != 0"><del>{{item.price}} ₴</del></p>
-											<p class="static_price" v-if="item.saleprice == 0">{{item.price}} ₴</p>
-											<p v-if="item.saleprice != 0"><span>Sale: </span><span class="sale_price" >{{item.saleprice}} ₴</span></p>
+										<p class="new_or" v-if="item.new != 'no'">{{item.new}}</p>
+										<p class="new_orpr" v-if="item.saleprice != 0">SALE!</p>
+									</div>
+										<div class="lol_wrap">
+											<h6>{{item.name}}</h6>
+											<p>Розмір: <span class="goods_size">{{item.size}}</span></p>
+											<div class="price_wrap">
+												<p v-if="item.saleprice != 0"><del>{{item.price}} ₴</del></p>
+												<p class="static_price" v-if="item.saleprice == 0">{{item.price}} ₴</p>
+												<p v-if="item.saleprice != 0"><span>Sale: </span><span class="sale_price" >{{item.saleprice}} ₴</span></p>
+											</div>
 										</div>
 									</div>
 								</div>	
@@ -97,15 +103,6 @@
 				</div>
 			</div>
 	</section>
-	
-									
-<!-- <div v-for="item in productsList">
-										<img :src="item.img" alt="">
-										<p>{{item.name}}</p>
-										<p>{{item.price}}</p>
-										<p>{{item.size}}</p>
-										<p v-if="item.saleprice != 0 ">{{item.saleprice}}</p>
-									</div> -->
         <Footer />
     </div>
 </template>
@@ -118,11 +115,14 @@ import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
 import Header from './Header.vue'
 import Footer from './Footer.vue'
-// import {mapGetters} from "vuex"
+import carousel from 'vue-owl-carousel2';
+import VueCarousel from 'vue-carousel';
+Vue.use(VueCarousel);
 export default {
     components:{
         Header,
-        Footer
+		Footer,
+		carousel
 	},
 	data(){
 		return{
@@ -138,18 +138,13 @@ export default {
 
 		Vue.axios.get("http://localhost:3000/tasks").then((popa)=>{
 		 this.productsList = popa.data; 
-		//  this.sortProducts();
 		
 		console.log(this.productsList);
-		// this.typeProd = this.$store.getters.selecterOfType;
-		//HIIIIIIIIIIIIIIIIIIIIIIIIIII
+	
 		this.sortProducts();
 	 })
 	},
 	computed: {
-		// ...mapGetters({
-		// 	typeProd: 'selecterOfType'
-		// }),
 		sortSizeProducts: function(){
 			this.typeProd = this.$store.getters.selecterOfType;
 			
